@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Prestigious
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Salários</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="topbar">
+    <p>Tel: xxxxx xxxxxxxxxx | Mail: info@domain.com</p>
+    <ul>
+      <li><a href="#">Libero</a></li>
+      <li><a href="#">Maecenas</a></li>
+      <li><a href="#">Mauris</a></li>
+      <li class="last"><a href="#">Suspendisse</a></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col2">
+  <div id="header">
+    <div id="topnav">
+      <ul>
+       <!-- <li><a href="outros.html">Outros</a><span>Usar Essa Pág</span></li>
+        <li><a href="viagens.html">Viagens</a><span>Pág nova</span></li>
+        
+        <li><a href="combustiveis.html">Combustíveis</a><span>Usar Essa Pág</span></li>
+        <li class="active"><a href="salarios.html">Salarios</a><span>Test Text Here</span></li> -->
+        <li><a href="../index.html">Homepage</a><span>Voltar Para o Início</span></li>
+      </ul>
+    </div>
+    <div id="logo">
+      <h1><a href="../index.html">Calculadoras</a></h1>
+      <p>Salário</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col3">
+  <div id="breadcrumb">
+  </div>
+</div>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+      <h1>Cálculo relacionado aos recebimentos de trabalho</h1>
+      
+      <div>
+        <a href="salarios_1.html" class="btn">Calculadora 1</a><span>Salário e horas Extras</span> <br>
+        <a href="salarios_2.html" class="btn">Calculadora 2</a> <span>Cálculo de Férias</span> <br>
+        <a href="salarios_3.html" class="btn">Calculadora 3</a> <span>Décimo Terceiro</span> <br>
+        <a href="#" class="btn">Calculadora 4</a> <span>Gasto Com Financiamento</span> <br>
+        <a href="#" class="btn">Calculadora 5</a> <span>Gasto Com Manutenções</span> <br>
+        <a href="#" class="btn">Calculadora 6</a> <span>Gasto Com Imposto</span> <br> <br> <br>
+      </div>
+  
+    
+    <div id="salarioseextras">
+      <h1>Horas de Trabalho - Extras e Sobreaviso</h1></br>
+      <label for="ldados">Dados de salário</label>  </br></br>
+      <label for="lsalario">Salário Base</label> </br> 
+      <input type="number" name="txsalariobase" placeholder="Salário Base (Bruto)" id="txsalariobase"> </br>
+      <input type="number" name="txcargahrmes" placeholder="Carga horária Mês" id="txcargahrmes"> </br>
+      <input type="number" name="txdescontosfixos" placeholder="Desconto Fixo" id="txdescontosfixos"> </br>
+      <label for="lhorasextras">Horas Extras e Sobreaviso</br> </br>
+      <input type="number" name="txhoras50" placeholder="Total de HE 50%" id="txhoras50">  </br>
+      <input type="number" name="txhoras100" placeholder="Total de HE 100%" id="txhoras100"> </br>
+      <input type="number" name="txhorassobre" placeholder="Total de hr Sobre Aviso" id="txhorassobre"> </br>
+          
+    <input type="button" style="font: Arial; align-self: auto; font-size: 100%;" value="Calcular" onclick="calcular()"> </br>                    
+  
+  
+    <div id="res" style="font: normal 18pt Arial" >Resultado</div> </br>
+    
+    <div id="res2" style="font: normal 18pt Arial" >Resultado2<br> 
+    <script>
+      function calcular() 
+      
+      { 
+                 //Variáveis que recebem o valor do imput //
+         var salariobaserecebe = window.document.getElementById('txsalariobase')
+         var cargahorasmesrecebe = window.document.getElementById('txcargahrmes')
+         var descontofixorecebe = window.document.getElementById('txdescontosfixos')
+              //Variáveis que puxam os valores e calculam Dados do Salário
+         var salariobase = (salariobaserecebe.value)
+         var cargahoras = (cargahorasmesrecebe.value)
+         var descontofixo = (descontofixorecebe.value)
+         var valordahora = (salariobase / cargahoras)
+         var valordahora50 = (valordahora * 1.5)
+         var valordahora100 = (valordahora * 2)
+         var valordahorasobre = (valordahora / 3)
+         var valordahoraredondo = parseFloat(valordahora.toFixed(2))
+         var valordahora50redondo = parseFloat(valordahora50.toFixed(2))
+         var valordahora100redondo = parseFloat(valordahora100.toFixed(2))
+         var valordahorasobreredondo = parseFloat(valordahorasobre.toFixed(2));
+              //Variáveis recebem o valor do input de extras
+         var extras50recebe = window.document.getElementById('txhoras50')
+         var extras100recebe = window.document.getElementById('txhoras100')            
+         var extrassobrerecebe = window.document.getElementById('txhorassobre')   
+             //Variáveis que puxam os valores e calculam as extras
+         var extras50 = (extras50recebe.value)
+         var extras100 = (extras100recebe.value)
+         var extrassobre = (extrassobrerecebe.value)
+         var extras50calculo = (extras50 * valordahora50redondo )
+         var extras100calculo = (extras100 * valordahora100redondo )
+         var extrassobrecalculo = (extrassobre * valordahorasobreredondo )
+         var extratotais = extrassobrecalculo + extras100calculo + extras50calculo
+         var extrassobrecalculoredondo = parseFloat(extrassobrecalculo.toFixed(2))
+         var extratotaisredondo = parseFloat(extratotais.toFixed(2))
+         var salariototalbruto = parseInt(extratotais) + parseInt(extratotais)
+         var salariototalbrutoredondo  =  parseFloat(salariototalbruto.toFixed(2))
+
+         // Desconto INNS
+
+         var valorinssdesconto,percentual;
+                if (salariototalbrutoredondo < 1045){
+             valorinssdesconto = (salariototalbrutoredondo * 7.5 /100),percentual = (7.5) }
+                else if (salariototalbrutoredondo >1045 && salariototalbrutoredondo <= 2089.60) {
+             valorinssdesconto = (salariototalbrutoredondo * 9 /100),percentual = (9.0)}
+                else if (salariototalbrutoredondo >2089.60 && salariototalbrutoredondo <= 3134.40) {
+             valorinssdesconto = (salariototalbrutoredondo * 12 / 100),percentual = (12.0) 
+                }else {(salariototalbrutoredondo > 3134.40),percentual = (14.0) 
+             valorinssdesconto = (salariototalbrutoredondo * 14 / 100)};
+
+         
+          var salariototaldescinss =  parseInt(salariototalbrutoredondo) - parseInt(valorinssdesconto)
+
+
+
+          // Desconto do IRRF
+
+          var valordoirrf,percentualirrf,deducao,faixa;
+                if (salariototaldescinss < 1903.98){
+                  valordoirrf = (0 ),percentualirrf = (0),deducao = (0),faixa=('isento')}
+                else if (salariototaldescinss >1903.98 && salariototaldescinss <= 2826.65) {
+                  valordoirrf = (salariototalbrutoredondo * 7.5 /100),percentualirrf = (7.5),deducao = (142.80),faixa='1'}
+                else if (salariototaldescinss >2826.65 && salariototaldescinss <= 3751.05) {
+                  valordoirrf = (salariototaldescinss * 15 /100),percentualirrf = (15.0),deducao = (354.80),faixa='2'}
+                else if (salariototaldescinss >3751.05 && salariototaldescinss <= 4664.68) {
+                  valordoirrf = (salariototaldescinss * 22.5 / 100),percentualirrf = (22.5),deducao = (636.13),faixa='3'  
+                }else {(salariototaldescinss > 4664.68),percentualirrf = (27.5) 
+                  valordoirrf = (salariototaldescinss * 27.5 / 100),percentualirrf = (27.5),deducao = (869.36),faixa='4'};
+
+           
+          var valortotaldescontoirrf = valordoirrf - deducao
+
+          var total = (( parseInt(salariototalbrutoredondo) - parseInt(valortotaldescontoirrf)) - parseInt(valorinssdesconto)) - parseInt(descontofixo)
+
+
+
+
+  
+  
+         res.innerHTML =      `Seu Salário base é <strong>${salariobase} R$ </strong></br> 
+                               A carga horária mensal é<strong> ${cargahoras} horas </strong></br> 
+                               O Valor da Sua hora normal é <strong>${valordahoraredondo} R$ </strong></br>
+                               O valor da Hora a 50% é <strong>${valordahora50redondo} R$  </strong> </br>
+                               O valor da Hora a 100% é <strong>${valordahora100redondo} R$  </strong></br>
+                               O valor da Hora em sobreaviso é <strong>${valordahorasobreredondo} R$  </strong></br>
+                               Um total de <strong>${extras50} horas </strong>Extras 50% nesse mês portanto um total de <strong>${extras50calculo} R$  </strong>aproximado </br>
+                               Um total de <strong>${extras100} horas </strong>Extras 100% nesse mês <strong>${extras100calculo} R$  </strong>aproximado   </br>
+                               Um total de <strong>${extrassobre} horas </strong>Extras Sobreaviso nesse mês <strong>${extrassobrecalculoredondo} R$  </strong>aproximado </br>
+                               Um total Aproximado de Extra + Sobreaviso de <strong>${extratotaisredondo} R$  </strong> </br>
+                               O Salário bruto Total é de <strong> ${salariototalbrutoredondo} R$ </strong> </br>
+                               O Percentual de desconto do INSS é de <strong>${percentual} % </strong>, ou seja, uma valor de<strong> ${valorinssdesconto} R$ </strong></br>
+
+                               Base de cálculo para desconto do IRRF <strong> ${salariototaldescinss} R$ </strong> Valor de desconto bruto do IR de <strong>${percentualirrf} % </strong> (FAIXA ${faixa}) num valor de: <strong> ${valordoirrf} R$ </strong></br> 
+                               Subtraído da dedução da faixa:<strong> ${deducao} R$ </strong> <br>
+                               Dessa forma o valor real de desconto do IRRF é de : <strong> ${valortotaldescontoirrf} </strong> </br>
+
+                               Salário Liquido a receber: <strong>${total} R$</strong>
+                               
+                               
+                                `
+                                res2.innerHTML = `${total} na segunda `
+                              
+          
+      }   
+  
+      
+  </script>
+  </label>
+  </div>  
+    
+  </div>
+  </div>
+    <div id="column">
+      <div class="subnav">
+      </div>
+      <div class="holder">
+        <h2 class="title"><img src="../images/demo/60x60.gif" alt="" />Nullamlacus dui ipsum conseque loborttis</h2>
+        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
+        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+      </div>
+      <div id="featured">
+        <ul>
+          <li>
+            <h2>AD Sense Fica Aqui</h2>
+              <div>
+                      
+              <!--
+               
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+       
+              <script>
+                   (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-678303128708xxxx",
+                    enable_page_level_ads: true 
+                }); 
+                </script>
+
+              -->
+              </div>
+          
+          
+            <p class="imgholder"><img src="../images/demo/240x90.gif" alt="" /></p>
+            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </li>
+        </ul>
+      </div>
+      <div class="holder">
+      
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="wrapper col5">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know !</h2>
+      <p>Please enter your email to join our mailing list</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+        </fieldset>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col6">
+  <div id="copyright">
+    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>

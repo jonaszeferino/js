@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Prestigious
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Salários</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="topbar">
+    <p>Tel: xxxxx xxxxxxxxxx | Mail: info@domain.com</p>
+    <ul>
+      <li><a href="#">Libero</a></li>
+      <li><a href="#">Maecenas</a></li>
+      <li><a href="#">Mauris</a></li>
+      <li class="last"><a href="#">Suspendisse</a></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col2">
+  <div id="header">
+    <div id="topnav">
+      <ul>
+       <!-- <li><a href="outros.html">Outros</a><span>Usar Essa Pág</span></li>
+        <li><a href="viagens.html">Viagens</a><span>Pág nova</span></li>
+        
+        <li><a href="combustiveis.html">Combustíveis</a><span>Usar Essa Pág</span></li>
+        <li class="active"><a href="salarios.html">Salarios</a><span>Test Text Here</span></li> -->
+        <li><a href="../index.html">Homepage</a><span>Voltar Para o Início</span></li>
+      </ul>
+    </div>
+    <div id="logo">
+      <h1><a href="../index.html">Calculadoras</a></h1>
+      <p>Salário</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col3">
+  <div id="breadcrumb">
+  </div>
+</div>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+      <h1>Cálculo relacionado aos recebimentos de trabalho</h1>
+      
+      <div>
+        <a href="salarios_1.html" class="btn">Calculadora 1</a><span>Salário e horas Extras</span> <br>
+        <a href="salarios_2.html" class="btn">Calculadora 2</a> <span>Cálculo de Férias</span> <br>
+        <a href="salarios_3.html" class="btn">Calculadora 3</a> <span>Décimo Terceiro</span> <br>
+        <a href="#" class="btn">Calculadora 4</a> <span>Gasto Com Financiamento</span> <br>
+        <a href="#" class="btn">Calculadora 5</a> <span>Gasto Com Manutenções</span> <br>
+        <a href="#" class="btn">Calculadora 6</a> <span>Gasto Com Imposto</span> <br> <br> <br>
+      </div>
+  
+    
+    <div id="salarioseextras">
+      <h1>Cáculo De Férias</h1></br>
+      <label for="ldados">Dados de salário</label>  </br></br>
+      <label for="lsalario">Salário Base</label> </br> 
+      <input type="number" name="txsalariobase" placeholder="Salário Base (Bruto)" id="txsalariobase"> </br> </br>
+     
+  
+          
+    <input type="button" style="font: Arial; align-self: auto; font-size: 100%;" value="Calcular" onclick="calcular()"> </br>  </br>                  
+  
+  
+    <div id="res" style="font: normal 18pt Arial" >Resultado<br> 
+    <script>
+      function calcular() 
+      
+      { 
+                 //Variáveis que recebem o valor do imput //
+         var salariobaserecebe = window.document.getElementById('txsalariobase')
+         
+              //Variáveis que puxam os valores e calculam Dados do Salário
+         var salariobase = (salariobaserecebe.value)
+         var valorferias = salariobase * 0.33
+         var valorferiasredondo = parseFloat(valorferias.toFixed(2))
+         var salariobaseredondo = salariobase * 1 //tive qeu multiplicar por 1 - pois estava concatenando ao invés de somar
+         var totalsalario = valorferias + salariobaseredondo
+         
+            //calculo do INSS
+         var valorinssdesconto,percentual;
+                if (totalsalario < 1045){
+             valorinssdesconto = (totalsalario * 7.5 /100),percentual = (7.5) }
+                else if (totalsalario >1045 && totalsalario <= 2089.60) {
+             valorinssdesconto = (totalsalario * 9 /100),percentual = (9.0)}
+                else if (totalsalario >2089.60 && totalsalario <= 3134.40) {
+             valorinssdesconto = (totalsalario * 12 / 100),percentual = (12.0) 
+                }else {(totalsalario > 3134.40),percentual = (14.0) 
+             valorinssdesconto = (totalsalario * 14 / 100)};
+            //Valores totais
+          var valortotalareceber = totalsalario - valorinssdesconto
+          var valortotalareceberredondo = parseFloat(valortotalareceber.toFixed(2))
+
+
+         
+ 
+         res.innerHTML =      `Seu Salário base é <strong> ${salariobase} R$ </strong> </br> 
+                               O valor do abono pecuniario é de <strong> ${valorferiasredondo} R$ </strong> </br>
+                               Um total Aproximado de Abono + Salário de <strong> ${totalsalario} R$ </strong></br>
+                               O valor do desconto do INSS é de <strong> ${percentual}% </strong>, ou seja, um desconto de<strong> ${valorinssdesconto} R$ </strong></br>
+                               Sendo assim o valor Líquido a receber neste caso é de <strong>${valortotalareceberredondo} R$ </strong> </br> </br>
+
+                               <strong>Resumo: </strong> </br> </br>
+                               * Salário base: <strong> ${salariobase} R$ </strong> </br> 
+                               * Abono Pecuniário: <strong> ${valorferiasredondo} R$ </strong> </br> 
+                               * Valor de Desconto INSS: <strong> ${valorinssdesconto} R$ </strong> </br> 
+                               * Percentual de Desconto do INSS: <strong> ${percentual} % </strong> </br>
+                               * Total a receber: <strong>${valortotalareceberredondo} R$ </strong> 
+                               
+                               ` 
+                              
+          
+      }   
+  
+      
+  </script>
+  </label>
+  </div>  
+    
+  </div>
+  </div>
+    <div id="column">
+      <div class="subnav">
+      </div>
+      <div class="holder">
+        <h2 class="title"><img src="../images/demo/60x60.gif" alt="" />Nullamlacus dui ipsum conseque loborttis</h2>
+        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
+        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+      </div>
+      <div id="featured">
+        <ul>
+          <li>
+            <h2>AD Sense Fica Aqui</h2>
+              <div>
+                      
+              <!--
+               
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+       
+              <script>
+                   (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-678303128708xxxx",
+                    enable_page_level_ads: true 
+                }); 
+                </script>
+
+              -->
+              </div>
+          
+          
+            <p class="imgholder"><img src="../images/demo/240x90.gif" alt="" /></p>
+            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </li>
+        </ul>
+      </div>
+      <div class="holder">
+      
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="wrapper col5">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know !</h2>
+      <p>Please enter your email to join our mailing list</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+        </fieldset>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col6">
+  <div id="copyright">
+    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>

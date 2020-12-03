@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Combustiveis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="topbar">
+    <p>Tel: xxxxx xxxxxxxxxx | Mail: info@domain.com</p>
+    <ul>
+      <li><a href="#">Libero</a></li>
+      <li><a href="#">Maecenas</a></li>
+      <li><a href="#">Mauris</a></li>
+      <li class="last"><a href="#">Suspendisse</a></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col2">
+  <div id="header">
+    <div id="topnav">
+      <ul>
+        <!--  <li><a href="outros.html">Outros</a><span>Usar Essa Pág</span></li>
+        <li><a href="viagens.html">Viagens</a><span>Pág nova</span></li>
+        <li><a href="salarios.html">Salário</a><span>Usar Essa Pág</span></li>
+        
+        <li class="active"><a href="combustiveis.html">Combustiveis</a><span>Voltar Para Combustíveis</span></li> -->
+      <li><a href="../index.html">Homepage</a><span>Voltar Para o Início</span></li>
+      </ul>
+    </div>
+    <div id="logo">
+      <h1><a href="../index.html">Calculadoras</a></h1>
+      <p>Combustíveis</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col3">
+  <div id="breadcrumb">
+  </div>
+</div>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+      <h1>Alguns Cálculos relacionados ao Gasto com Veículos</h1>
+      <div>
+          <a href="combustiveis_1.html" class="btn">Calculadora 1</a><span>Cálculo Simples De Consumo de Combustível</span> <br>
+          <a href="combustiveis_2.html" class="btn">Calculadora 2</a> <span>Gasto Com Óleo E Freios</span> <br>
+          <a href="#" class="btn">Calculadora 3</a> <span>Gasto Com Garagem</span> <br>
+          <a href="#" class="btn">Calculadora 4</a> <span>Gasto Com Financiamento</span> <br>
+          <a href="#" class="btn">Calculadora 5</a> <span>Gasto Com Manutenções</span> <br>
+          <a href="#" class="btn">Calculadora 6</a> <span>Gasto Com Imposto</span> <br> <br> <br> 
+      </div>
+  
+     <div id="oleofreios">
+      <h2>Gastos Com Oléo e Freios </h2>
+      <input type="varchar" name="txtotalkm" style="margin-bottom:4px;font-size: large;" placeholder="Km Rodados" id="txtotalkm"> </br>
+      <input type="varchar" name="txtipodeoleo" style="margin-bottom:4px;font-size: large;" placeholder="Tipo do Óleo" id="txtipodooleo"> </br>
+      <input type="number" name="txtempodetroca" style="margin-bottom:4px;font-size: large;" placeholder="Troca do óleo em km" id="txtempodetroca"> </br>
+      <input type="number" name="txvalordatroca" style="margin-bottom:4px;font-size: large;" placeholder="Valor da troca" id="txvalordatroca"> </br>
+      <input type="number" name="txpastilhas" style="margin-bottom:4px;font-size: large;" placeholder="Pastilhas em Km" id="txpastilhas"> </br>
+      <input type="number" name="txvalorpastilhas" style="margin-bottom:4px;font-size: large;" placeholder="Valor Da Troca das Pastilhas" id="txvalorpastilhas"> </br>
+      <input type="button" class="btn" value="Calcular" onclick="calcular2()"> </br>                    
+      <div id="res2">Resultado</div> </br>
+  <script>
+       function calcular2() { 
+          
+          var tipodooleorecebe = window.document.getElementById('txtipodooleo')
+          var tempodetrocarecebe = window.document.getElementById('txtempodetroca')
+          var valordatrocarecebe = window.document.getElementById('txvalordatroca')
+          var pastilhasrecebe = window.document.getElementById('txpastilhas')
+          var valorpastilhasrecebe = window.document.getElementById('txvalorpastilhas')
+          var totalkmrecebe = window.document.getElementById('txtotalkm')
+          var res2 = window.document.getElementById('res2')
+          var totaldekm = (totalkmrecebe.value) 
+          var tipodooleo = (tipodooleorecebe.value)                                      
+          var tempodetroca = (tempodetrocarecebe.value)           
+          var valortroca = (valordatrocarecebe.value)
+          var pastilhas = (pastilhasrecebe.value)
+          var valordaspastilhas = (valorpastilhasrecebe.value)
+          var custopastilhas = valordaspastilhas / pastilhas
+          var custopastilhasarredondado = parseFloat(custopastilhas.toFixed(4))
+          var valordaspastilhasporkm = custopastilhasarredondado * totaldekm
+          var valordaspastilhasporkmarredondado = parseFloat(valordaspastilhasporkm.toFixed(4))
+
+          
+          var valordooleoporlitro =  valortroca / tempodetroca
+          var valordooleoporlitroarredondado =  parseFloat(valordooleoporlitro.toFixed(4))
+          var valordooleoporlitrodado = totaldekm * valordooleoporlitroarredondado
+          var valordooleoporlitrodadoarredondado = parseFloat(valordooleoporlitrodado.toFixed(4))
+          var valordetudogasto = valordaspastilhasporkmarredondado + valordooleoporlitrodadoarredondado
+          var valordetudogastoarredondado = parseFloat(valordetudogasto.toFixed(2))
+
+
+
+
+          res2.innerHTML = `Suas Pastilhas de freio tem um gasto de <strong> ${custopastilhasarredondado} 
+          R$ </strong> por km Rodado, portanto você gastou <strong> ${valordaspastilhasporkmarredondado} R$ </strong> nesta distância percorrida.
+          O Seu Carro tem um valor de gasto de Óleo de <strong>  ${valordooleoporlitroarredondado} R$ </strong> por km rodado, 
+          nesta distancia percorrida o valor gasto foi de <strong> ${valordooleoporlitrodadoarredondado} R$. </strong>
+          Sendo assim o gasto com pastilhas + óleo neste caso foi de um total de <strong>${valordetudogastoarredondado} R$ </strong> <br><br>
+
+            <strong>Resumo:</strong><br> <br>
+            
+            * km Rodados: <strong> ${totaldekm} kilometros </strong> <br>
+            * Custo Pastilhas por km: <strong>${custopastilhasarredondado} R$ </strong> <br>
+            * Total Gasto Pastilhas: <strong>${valordaspastilhasporkmarredondado} R$ </strong> <br>
+            * Custo Óleo por km: <strong>${valordooleoporlitroarredondado} R$ </strong> <br> 
+            * Total Gasto Óleo: <strong> ${valordooleoporlitrodadoarredondado} R$ </strong> <br>
+            * Total Gasto Óleo + Pastilhas: <strong> ${valordetudogastoarredondado} R$ </strong> <br>
+
+          `
+  
+       }
+  </script>
+      
+      
+    </div>
+    </div>
+    
+    <div id="column">
+      <div class="subnav">
+      </div>
+      <div id="featured">
+        <ul>
+          <li>
+            <h2>AD Sense Fica Aqui</h2>
+              <div>
+              <!--
+              
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              
+              <script>
+                   (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-678303128708xxxx",
+                    enable_page_level_ads: true 
+                }); 
+                </script>
+
+              -->
+              </div>
+          
+          
+            <p class="imgholder"><img src="../images/demo/240x90.gif" alt="" /></p>
+            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          </li>
+        </ul>
+      </div>
+      <div class="holder">
+        <h2>Lorem ipsum dolor</h2>
+        <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
+        <ul>
+          <li><a href="#">Lorem ipsum dolor sit</a></li>
+          <li>Etiam vel sapien et</li>
+          <li><a href="#">Etiam vel sapien et</a></li>
+        </ul>
+        <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
+        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="wrapper col5">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know !</h2>
+      <p>Please enter your email to join our mailing list</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+        </fieldset>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<div class="wrapper col6">
+  <div id="copyright">
+    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>
